@@ -21,3 +21,25 @@ while (i < shoppingList.length) {
     // Incremento del contatore
     i++;
 }
+
+
+// Seleziona tutti gli elementi 'li' nel documento
+var listItems = document.querySelectorAll('li');
+
+// Per ogni elemento 'li'...
+listItems.forEach(function(listItem) {
+    // Aggiungi un gestore di eventi 'click'
+    listItem.addEventListener('click', 
+        function() {
+        // Alterna la classe 'checked' ogni volta che l'elemento viene cliccato
+        this.classList.toggle('checked');
+
+        // Se l'elemento ha la classe 'checked', aggiungi un'icona di spunta all'inizio del testo
+        // Altrimenti, rimuovi l'icona di spunta dal testo
+        if (this.classList.contains('checked')) {
+            this.textContent = this.textContent + ' ✔';
+        } else {
+            this.textContent = this.textContent.slice(0, -2);
+        }
+        });
+});
